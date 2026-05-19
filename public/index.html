@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Recovery System | MongoDB Backup & Restore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Disaster Recovery System</h1>
+            <p>AWS EC2 + MongoDB + S3 Backup System</p>
+        </header>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <h3>📊 System Status</h3>
+                <div id="systemStatus">
+                    <div class="status-item">MongoDB: <span id="dbStatus">Checking...</span></div>
+                    <div class="status-item">Total Records: <span id="totalRecords">0</span></div>
+                    <div class="status-item">Critical Data: <span id="criticalCount">0</span></div>
+                    <div class="status-item">Users: <span id="usersCount">0</span></div>
+                    <div class="status-item">Last Checked: <span id="lastChecked">-</span></div>
+                </div>
+                <button onclick="refreshStatus()" class="btn btn-primary">🔄 Refresh Status</button>
+            </div>
+
+            <div class="status-card">
+                <h3>⚡ Quick Actions</h3>
+                <button onclick="createBackup()" class="btn btn-success">💾 Create Backup</button>
+                <button onclick="addSampleData()" class="btn btn-info">📝 Add Sample Data</button>
+                <button onclick="simulateDisaster()" class="btn btn-danger">⚠️ Simulate Disaster</button>
+            </div>
+        </div>
+
+        <div class="backup-section">
+            <h3>📦 Available Backups</h3>
+            <div id="backupList">
+                <p>Loading backups...</p>
+            </div>
+            <button onclick="loadBackups()" class="btn btn-secondary">🔄 Refresh Backups</button>
+        </div>
+
+        <div class="data-section">
+            <h3>📋 Load Current Data</h3>
+            <button onclick="loadCurrentData()" class="btn btn-info">📊 Load Current Data</button>
+            <div id="dataDisplay">
+                <p>Click "Load Current Data" to view database contents</p>
+            </div>
+        </div>
+
+        <div class="logs-section">
+            <h3>📝 Operation Log</h3>
+            <div id="operationLog">
+                <p>System ready. Waiting for operations...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
